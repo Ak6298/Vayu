@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - VAYU BRAHMAN</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="login-page">
+
+        <div class="login-box">
+
+            <h1>VAYU BRAHMAN</h1>
+
+            <h2>Welcome Back</h2>
+
+            <p class="login-subtitle">
+                Login to continue your journey
+            </p>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="error-message">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+
+            <form method="post">
+                {% csrf_token %}
+
+                <label>Username</label>
+
+                <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    placeholder="Enter username"
+                    required
+                >
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Enter password"
+                    required
+                >
+
+                <button type="submit" class="login-btn">
+                    Login
+                </button>
+
+            </form>
+
+            <div class="or">
+                OR
+            </div>
+
+            <a href="{% url 'guest_home' %}" class="guest-btn">
+                Continue as Guest
+            </a>
+
+            <p class="signup-link">
+                New user? <a href="{% url 'register' %}">Create an account</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fffaf2;
+    color: #1e1e1e;
+}
+
+.welcome-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f4e2b3, #f6f6f6);
+}
+
+.welcome-container {
+    text-align: center;
+    cursor: pointer;
+    padding: 40px 20px;
+    transition: transform 0.2s ease;
+}
+
+.welcome-container:hover {
+    transform: scale(1.02);
+}
+
+.welcome-container h1 {
+    font-size: 3rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+    color: #1d2d3a;
+}
+
+.welcome-container p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #2b3d4f;
+}
+
+.start-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5efe6;
+    padding: 20px;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    border-radius: 16px;
+    padding: 32px 28px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.login-box h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 18px;
+    letter-spacing: 0.08em;
+}
+
+.login-box h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.login-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 24px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.login-btn,
+.guest-btn,
+.logout-btn {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    font-weight: bold;
+}
+
+.login-btn {
+    margin-top: 8px;
+    padding: 12px 18px;
+    background: #1e3a5f;
+    color: white;
+}
+
+.guest-btn {
+    margin-top: 14px;
+    width: 100%;
+    padding: 12px 18px;
+    background: #d8b878;
+    color: #11313d;
+}
+
+.logout-btn {
+    padding: 10px 16px;
+    background: #1d2d3a;
+    color: white;
+}
+
+.login-btn:hover,
+.guest-btn:hover,
+.logout-btn:hover {
+    opacity: 0.95;
+}
+
+.or {
+    text-align: center;
+    color: #777;
+    margin-top: 18px;
+    font-weight: bold;
+}
+
+.error-message {
+    color: #b00020;
+    font-weight: bold;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 30px;
+    background: #0d1b22;
+    color: white;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+}
+
+.home-page {
+    padding: 50px 30px;
+    text-align: center;
+}
+
+.home-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.home-page p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.guest-note {
+    margin-top: 18px;
+    font-weight: bold;
+    color: #2f4d5a;
+}

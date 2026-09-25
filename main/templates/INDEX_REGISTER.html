@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - VAYU BRAHMAN</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-box">
+            <h1>VAYU BRAHMAN</h1>
+            <h2>Create Account</h2>
+            <p class="login-subtitle">
+                Start your journey with a new account
+            </p>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <label>Full Name</label>
+                <input type="text" name="full_name" placeholder="Enter full name" required>
+
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Choose username" required>
+
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Enter email" required>
+
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Create password" required>
+
+                <button type="submit" class="login-btn">
+                    Create Account
+                </button>
+            </form>
+
+            <p class="signup-link">
+                Already have an account? <a href="{% url 'login' %}">Login</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

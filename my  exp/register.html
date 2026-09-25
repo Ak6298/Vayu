@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #111827, #1f2937);
+        color: #e5e7eb;
+      }
+      .card {
+        width: min(90vw, 430px);
+        background: rgba(17, 24, 39, 0.9);
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        border-radius: 18px;
+        padding: 28px 22px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.26);
+      }
+      h2 {
+        margin-top: 0;
+        text-align: center;
+      }
+      label {
+        display: block;
+        margin: 15px 0 8px;
+        color: #dbeafe;
+      }
+      input {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 10px;
+        border: 1px solid #475569;
+        background: #0f172a;
+        color: white;
+        font-size: 1rem;
+      }
+      button {
+        width: 100%;
+        margin-top: 18px;
+        background: #fbbf24;
+        color: #111827;
+        border: none;
+        border-radius: 10px;
+        padding: 12px 14px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .message {
+        margin-top: 18px;
+        min-height: 24px;
+        font-size: 0.95rem;
+      }
+      .success { color: #86efac; }
+      .error { color: #fca5a5; }
+      .link {
+        text-align: center;
+        margin-top: 18px;
+        font-size: 0.92rem;
+      }
+      .link a {
+        color: #7dd3fc;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Create Account</h2>
+      <form id="registerForm">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Enter your name" required />
+
+        <label for="phone">Phone no.</label>
+        <input id="phone" name="phone" type="tel" placeholder="Enter phone number" required />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="Enter your email" required />
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Enter your password" required />
+
+        <button type="submit">Register</button>
+      </form>
+
+      <div id="message" class="message"></div>
+
+      <div class="link">
+        Already have an account? <a href="/login">Login</a>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById('registerForm');
+      const messageBox = document.getElementById('message');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const formData = {
+          name: document.getElementById('name').value.trim(),
+          phone: document.getElementById('phone').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          password: document.getElementById('password').value.trim(),
+        };
+
+        messageBox.textContent = 'Registering...';
+        messageBox.className = 'message';
+
+        try {
+          const response = await fetch('/api/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          });
+
+          const result = await response.json();
+
+          if (!response.ok) {
+            throw new Error(result.message || 'Registration failed');
+          }
+
+          messageBox.textContent = result.message + ' Redirecting to login...';
+          messageBox.classList.add('success');
+          form.reset();
+
+          setTimeout(() => {
+            window.location.href = '/login';
+          }, 1500);
+        } catch (error) {
+          messageBox.textContent = error.message;
+          messageBox.classList.add('error');
+        }
+      });
+    </script>
+  </body>
+</html>

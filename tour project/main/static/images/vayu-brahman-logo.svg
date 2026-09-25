@@ -1,0 +1,47 @@
+<svg width="260" height="260" viewBox="0 0 260 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gold" x1="28" y1="16" x2="210" y2="242" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F7E7B1"/>
+      <stop offset="0.24" stop-color="#E8C46A"/>
+      <stop offset="0.5" stop-color="#D7A24B"/>
+      <stop offset="0.76" stop-color="#F3D989"/>
+      <stop offset="1" stop-color="#B97726"/>
+    </linearGradient>
+    <radialGradient id="innerGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(110 118) rotate(90) scale(92 92)">
+      <stop offset="0" stop-color="#F9E7A9" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#D8A454" stop-opacity="0.08"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="130" cy="130" r="110" fill="#071C23" stroke="url(#gold)" stroke-width="4"/>
+  <circle cx="130" cy="130" r="82" fill="url(#innerGlow)" stroke="url(#gold)" stroke-width="2.5" stroke-opacity="0.9"/>
+  <circle cx="130" cy="130" r="55" fill="none" stroke="url(#gold)" stroke-width="2" stroke-opacity="0.7"/>
+
+  <g opacity="0.96">
+    <path d="M52 105C74 85 94 74 116 71C134 69 153 74 172 88C165 92 160 96 154 101C136 95 121 95 101 100C83 104 67 110 52 105Z" fill="url(#gold)" fill-opacity="0.16"/>
+    <path d="M48 111C67 88 88 77 109 75C129 73 148 81 170 99" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M60 129C77 141 92 147 108 147C126 147 144 140 162 124" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M76 171C90 154 104 146 124 142C135 139 147 141 159 147C147 162 135 171 119 177C102 183 85 181 76 171Z" fill="url(#gold)" fill-opacity="0.18"/>
+  </g>
+
+  <g>
+    <path d="M84 104C96 80 117 65 142 62C130 79 119 91 101 101L84 104Z" fill="url(#gold)" fill-opacity="0.86"/>
+    <path d="M82 151C101 128 125 118 156 120C140 136 124 146 100 154L82 151Z" fill="url(#gold)" fill-opacity="0.82"/>
+    <path d="M98 130C113 117 124 112 138 112C149 112 160 117 169 126" stroke="url(#gold)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M75 96C89 100 98 110 101 124C105 139 101 153 91 165" stroke="url(#gold)" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M171 112C158 121 146 127 130 129" stroke="url(#gold)" stroke-width="3.2" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <circle cx="130" cy="130" r="11" fill="url(#gold)"/>
+    <path d="M130 102L136 124L130 148L124 124L130 102Z" fill="#F6E5AE" fill-opacity="0.9"/>
+    <path d="M102 130L124 124L148 130L124 136L102 130Z" fill="#F6E5AE" fill-opacity="0.8"/>
+  </g>
+
+  <g fill="url(#gold)" opacity="0.85">
+    <path d="M34 123C37 121 41 122 43 125C45 128 42 132 38 133C34 134 30 132 29 128C29 126 31 124 34 123Z"/>
+    <path d="M209 83C212 81 216 82 218 85C220 88 217 92 213 93C209 94 205 92 204 88C204 86 206 84 209 83Z"/>
+    <path d="M36 84C40 81 45 82 47 86C49 90 45 93 40 94C36 95 31 93 30 89C30 87 33 85 36 84Z"/>
+    <path d="M207 163C211 160 216 161 218 164C220 168 216 171 211 172C207 173 203 171 202 167C202 165 205 164 207 163Z"/>
+  </g>
+</svg>

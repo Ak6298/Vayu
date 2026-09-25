@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAYU BRAHMAN</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="welcome-page">
+
+    <div class="welcome-container" onclick="window.location.href='{% url 'login' %}'">
+
+        <h1>VAYU BRAHMAN</h1>
+
+        <p>Explore. Travel. Discover.</p>
+
+        <div class="start-text">
+            Click anywhere to start
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SOS & Medical Emergency - VAYU BRAHMAN</title>
+    {% load static %}
+    <style>
+        :root {
+            --bg: #f3f0eb;
+            --paper: #f8f6f2;
+            --panel: #f7f2e9;
+            --line: #2b2b2b;
+            --text: #1f1f1f;
+            --muted: #5a5a5a;
+            --accent: #d8c7b2;
+            --shadow: rgba(31, 31, 31, 0.12);
+            --dark: #081b20;
+            --dark-2: #112d35;
+            --danger: #c94b4b;
+            --medical: #4d9fd1;
+            --gold: #f3d68d;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .page-shell {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+            min-height: 100vh;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 18px;
+            padding: 20px 38px 18px;
+            background: linear-gradient(135deg, #081b20 0%, #0c222a 38%, #07151a 100%);
+            border-bottom: 1px solid rgba(231, 200, 144, 0.35);
+            box-shadow: 0 10px 35px rgba(3, 16, 22, 0.25);
+        }
+
+        .brand-wrap {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            min-width: 0;
+        }
+
+        .brand-mark {
+            width: 120px;
+            height: 96px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .brand-mark img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .nav {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #f7f2e9;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav a:hover {
+            color: #e8c98d;
+            transform: translateY(-1px);
+        }
+
+        .nav .sos-link {
+            color: #ffb4b4;
+        }
+
+        .login-btn {
+            border: 1px solid rgba(231, 200, 144, 0.9);
+            background: rgba(231, 200, 144, 0.08);
+            color: #f8f2e5;
+            padding: 10px 18px;
+            cursor: pointer;
+            font-size: 0.76rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border-radius: 999px;
+            text-decoration: none;
+        }
+
+        .content {
+            padding: 38px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(17, 45, 53, 0.96), rgba(8, 27, 32, 0.96));
+            color: #f7f2e9;
+            padding: 32px 28px;
+            border: 1px solid rgba(231, 200, 144, 0.35);
+            box-shadow: 0 18px 35px rgba(8, 27, 32, 0.18);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #f3d68d;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            letter-spacing: -0.06em;
+        }
+
+        .hero p {
+            margin: 0;
+            max-width: 700px;
+            color: rgba(247, 242, 233, 0.82);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 30px;
+        }
+
+        .emergency-card {
+            padding: 22px 20px;
+            border: 1px solid rgba(0,0,0,0.12);
+            background: white;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.04);
+        }
+
+        .emergency-card critical,
+        .emergency-card.medical,
+        .emergency-card.support {
+            position: relative;
+        }
+
+        .emergency-card.critical { border-top: 5px solid var(--danger); }
+        .emergency-card.medical { border-top: 5px solid var(--medical); }
+        .emergency-card.support { border-top: 5px solid var(--gold); }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(8, 27, 32, 0.05);
+            color: var(--dark);
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .emergency-card h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            letter-spacing: -0.04em;
+        }
+
+        .number {
+            font-size: clamp(2.1rem, 3vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1;
+            margin: 16px 0 12px;
+            letter-spacing: -0.06em;
+            color: var(--text);
+        }
+
+        .emergency-card p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 0.96rem;
+        }
+
+        .actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border: 1px solid var(--line);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.78rem;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+
+        .action-btn.primary {
+            background: var(--dark);
+            color: #fff;
+            border-color: var(--dark);
+        }
+
+        .action-btn.secondary {
+            background: transparent;
+            color: var(--text);
+        }
+
+        .tips {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.08);
+            padding: 24px 22px;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.03);
+        }
+
+        .tips h2 {
+            margin: 0 0 16px;
+            font-size: 1.3rem;
+            letter-spacing: -0.04em;
+        }
+
+        .tips ul {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        @media (max-width: 900px) {
+            .emergency-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .content {
+                padding: 20px 18px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <div class="brand-wrap">
+                <div class="brand-mark" aria-label="Vayu Brahman travel logo">
+                    <img src="{% static 'images/vayu-brahman-logo.jpeg' %}" alt="Vayu Brahman - Explore, Travel, Discover" />
+                </div>
+            </div>
+
+            <nav class="nav" aria-label="Main navigation">
+                <a href="{% url 'home_page_html' %}">Home</a>
+                <a href="{% url 'explore_page' %}">Explore</a>
+                <a href="{% url 'travel_plan' %}">Travel Plan</a>
+                <a href="{% url 'transport_booking' %}">Book Travel</a>
+                <a href="{% url 'events_page' %}">Events</a>
+                <a href="{% url 'emergency_page' %}" class="sos-link">SOS</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" class="login-btn">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="login-btn">Sign In</a>
+                {% endif %}
+            </nav>
+        </header>
+
+        <main class="content">
+            <section class="hero">
+                <span class="eyebrow">Travel safety</span>
+                <h1>SOS &amp; Medical Emergency</h1>
+                <p>Stay prepared while exploring new places. Keep the most important emergency contacts handy and call without delay if you need immediate help.</p>
+            </section>
+
+            <section class="emergency-grid" aria-label="Emergency contacts">
+                <article class="emergency-card critical">
+                    <span class="badge">SOS</span>
+                    <h3>Emergency Helpline</h3>
+                    <div class="number">112</div>
+                    <p>For police, fire brigade, and ambulance support in urgent situations.</p>
+                </article>
+
+                <article class="emergency-card medical">
+                    <span class="badge">Medical</span>
+                    <h3>Ambulance</h3>
+                    <div class="number">108</div>
+                    <p>Fast medical assistance for illness, injury, or emergency transport.</p>
+                </article>
+
+                <article class="emergency-card support">
+                    <span class="badge">Tourist</span>
+                    <h3>Tourist Support</h3>
+                    <div class="number">1363</div>
+                    <p>Dedicated help desk for travelers requiring guidance and local support.</p>
+                </article>
+            </section>
+
+            <div class="actions">
+                <a href="tel:112" class="action-btn primary">Call 112</a>
+                <a href="tel:108" class="action-btn secondary">Call 108</a>
+            </div>
+
+            <section class="tips">
+                <h2>Safety tips</h2>
+                <ul>
+                    <li>Always share your live location and nearby landmark details when you call for help.</li>
+                    <li>Keep a list of local hospital contacts and your family emergency numbers saved offline.</li>
+                    <li>Use the emergency helpline without delay in case of danger, medical problems, or severe distress.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
